@@ -1,0 +1,96 @@
+.burger__button {
+   display: none;
+}
+
+@media (width < 1023px) {
+   .burger__button {
+      display: block;
+      position: absolute;
+      right: 2.5%;
+      width: 48px;
+      height: 48px;
+      background-color: rgb(0, 0, 0);
+      // overflow: clip;
+
+      &::before {
+         content: "";
+         position: absolute;
+         z-index: -1;
+         inset: -1px;
+         background-image: conic-gradient(
+            var(--color-accent),
+            transparent,
+            var(--color-accent)
+         );
+         filter: blur(2px);
+      }
+
+      @include hover {
+         cursor: pointer;
+         // background-color: var(--color-red-60);
+      }
+   }
+
+   .burger__button span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 2px;
+      width: 60%;
+      border-radius: var(--border-radius-xs);
+      background-color: white;
+      transition: 0.25s;
+   }
+
+   .burger__button span:nth-child(1) {
+      top: 30%;
+
+      &::before,
+      &::after {
+         content: "";
+         position: absolute;
+         top: 0;
+         width: 2px;
+         height: 0;
+         background-color: var(--color-white);
+         transition: 0.5s;
+      }
+
+      &::before {
+         left: 0;
+      }
+
+      &::after {
+         right: 0;
+      }
+   }
+   .burger__button span:nth-child(3) {
+      top: 70%;
+      left: 60%;
+      width: 40%;
+   }
+
+   //! active burger btn
+   .is-active__burger-button span {
+      background-color: var(--color-red-60);
+   }
+
+   .is-active__burger-button span:nth-child(1) {
+      &::before,
+      &::after {
+         height: 19px;
+         transition: 0.75s;
+         background-color: var(--color-red-60);
+      }
+   }
+
+   .is-active__burger-button span:nth-child(2) {
+      top: 70%;
+   }
+
+   .is-active__burger-button span:nth-child(3) {
+      left: -50%;
+      opacity: 0;
+   }
+}

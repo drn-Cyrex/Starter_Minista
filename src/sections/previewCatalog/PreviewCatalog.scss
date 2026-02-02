@@ -1,0 +1,10 @@
+.catalog {
+   min-height: 100dvh;
+}
+
+.catalog h1 {
+   position: relative;
+   top: calc(var(--header-height) + 1rem);
+   font-size: 3rem;
+   padding-left: 1rem;
+}
