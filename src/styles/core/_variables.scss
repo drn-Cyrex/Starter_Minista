@@ -1,0 +1,78 @@
+/* ------------------------------
+   1. Цветовая система (Light)
+------------------------------ */
+:root {
+   /* Основные цвета */
+   --color-primary: #d846e5;
+   --color-primary-hover: #ca3850;
+
+   --color-accent: oklch(0.4806 0.1597 25.56);
+   --color-light: oklch(1 0 0 / 25%);
+   --color-dark: oklch(0.25 0 0);
+   --color-black: oklch(0 0 0);
+
+   --color-bg: #222222;
+   --color-bg-secondary: #f5f5f5;
+
+   --color-text: #ffffff;
+   --color-text-secondary: #555555;
+
+   --color-border: #e5e5e5;
+
+   /* Успех / Ошибка / Предупреждение */
+   --color-success: #22c55e;
+   --color-warning: #f59e0b;
+   --color-danger: #ef4444;
+
+   /* Радиусы */
+   --radius-sm: 4px;
+   --radius-md: 8px;
+   --radius-lg: 16px;
+
+   /* Тени */
+   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+   --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.16);
+
+   /* Spacing scale (4px system) */
+   --space-1: 4px;
+   --space-2: 8px;
+   --space-3: 12px;
+   --space-4: 16px;
+   --space-5: 20px;
+   --space-6: 24px;
+   --space-7: 32px;
+   --space-8: 40px;
+   --space-9: 48px;
+
+   /* Контейнеры */
+   --container-width: 1200px;
+   --container-padding: 16px;
+
+   /* Типографика */
+   --font-base: 16px;
+   --font-family: "Jura", sans-serif;
+
+   /* Responsive scale */
+   --font-size-sm: clamp(0.875rem, 0.8rem + 0.2vw, 0.95rem);
+   --font-size-md: clamp(1rem, 0.9rem + 0.3vw, 1.1rem);
+   --font-size-lg: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+   --font-size-xl: clamp(1.5rem, 1.3rem + 0.8vw, 2rem);
+
+   /* Динамическое масштабирование   */
+   --index: 1vh + 1vw;
+}
+
+/* Z-index scale */
+$z-index: (
+   base: 1,
+   dropdown: 1000,
+   sticky: 1100,
+   fixed: 1200,
+   modal-backdrop: 1290,
+   modal: 1300,
+   popover: 1400,
+   tooltip: 1500,
+   toast: 1600,
+   debug: 9999,
+);

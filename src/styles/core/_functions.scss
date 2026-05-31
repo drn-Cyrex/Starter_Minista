@@ -1,0 +1,47 @@
+@use "sass:math";
+@use "sass:map";
+@use "sass:meta";
+@use "variables" as *;
+@use "breakpoints" as *;
+
+/* Z-index */
+@function z($key) {
+   @if map.has-key($z-index, $key) {
+      @return map.get($z-index, $key);
+   }
+
+   @warn "Z-index key `#{$key}` not found in \$z-index map.";
+   @return null;
+}
+
+
+@function bp($value) {
+   @if meta.type-of($value) == number {
+      @return $value;
+   }
+
+   @if map.has-key($breakpoints, $value) {
+      @return map.get($breakpoints, $value);
+   }
+
+   @error "Unknown breakpoint: #{$value}";
+}
+
+@function fluid($max, $min, $max-vw, $min-vw) {
+   $max-vw: bp($max-vw);
+   $min-vw: bp($min-vw);
+
+   $min-rem: math.div($min, 16) * 1rem;
+   $max-rem: math.div($max, 16) * 1rem;
+
+   $slope: math.div(($max - $min), ($max-vw - $min-vw));
+   $intercept: $min - $slope * $min-vw;
+
+   $slope: math.div(math.round($slope * 100000), 100000);
+
+   @return clamp(
+      #{$min-rem},
+      calc(#{math.div($intercept, 16)}rem + #{$slope * 100}vw),
+      #{$max-rem}
+   );
+}

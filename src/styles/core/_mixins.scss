@@ -1,0 +1,130 @@
+@use "variables" as *;
+@use "functions" as *;
+
+/* -----------------------------------
+   MIXINS — Utility System (2026)
+   Media, Layout, Typography, Motion
+----------------------------------- */
+
+/* ------------------------------
+   1. Media Queries (mobile-first)
+   Создаёт media‑query на основе 
+   брейкпоинтов из $breakpoints в _variables.scss.
+
+   Пример
+   .card {
+      padding: 16px;
+      @include media(md) {
+         padding: 24px;
+      }
+   }
+
+------------------------------ */
+@mixin media($size) {
+   @media (min-width: map-get($breakpoints, $size)) {
+      @content;
+   }
+}
+
+/* ------------------------------
+   2. Container
+------------------------------ */
+@mixin container {
+   width: min(var(--container-width), 100%);
+   margin-inline: auto;
+   padding-inline: var(--container-padding);
+}
+
+/* ------------------------------
+   3. Grid helpers
+------------------------------ */
+@mixin grid($columns, $gap: var(--space-4)) {
+   display: grid;
+   grid-template-columns: repeat($columns, 1fr);
+   gap: $gap;
+}
+
+/* ------------------------------
+   4. Visually Hidden (A11y)
+------------------------------ */
+@mixin visually-hidden {
+   position: absolute !important;
+   width: 1px !important;
+   height: 1px !important;
+   padding: 0 !important;
+   margin: -1px !important;
+   overflow: hidden !important;
+   clip: rect(0, 0, 0, 0) !important;
+   white-space: nowrap !important;
+   border: 0 !important;
+}
+
+/* ------------------------------
+   5. Safe Animation (prefers-reduced-motion)
+------------------------------ */
+@mixin motion-safe {
+   @media (prefers-reduced-motion: no-preference) {
+      @content;
+   }
+}
+
+@mixin motion-reduce {
+   @media (prefers-reduced-motion: reduce) {
+      @content;
+   }
+}
+
+/* ------------------------------
+   6. Animation helper
+------------------------------ */
+@mixin animate($name, $duration: 0.3s, $ease: ease, $fill: both) {
+   @include motion-safe {
+      animation: $name $duration $ease $fill;
+   }
+}
+
+/* ------------------------------
+   7. Responsive Typography (clamp)
+------------------------------ */
+@mixin fluid-type($min, $max) {
+   font-size: clamp(#{$min}, 1rem + 1vw, #{$max});
+}
+
+
+/* ------------------------------
+   8. Z-index helper
+------------------------------ */
+@mixin z($key) {
+   z-index: map-get($z-index, $key);
+}
+
+/* ------------------------------
+   9. Truncate text
+------------------------------ */
+@mixin truncate($lines: 1) {
+   overflow: hidden;
+   display: -webkit-box;
+   -webkit-line-clamp: $lines;
+   -webkit-box-orient: vertical;
+}
+
+/* ------------------------------
+   10. Absolute center
+------------------------------ */
+@mixin absolute-center {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+
+@mixin square($size) {
+   width: $size;
+   height: $size;
+}
+
+@mixin focus-visible {
+   outline: 2px dashed var(--color-white);
+   outline-offset: 4px;
+   transition-duration: 0s !important;
+}

@@ -1,0 +1,52 @@
+*,
+*::before,
+*::after {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+html {
+   scroll-behavior: smooth;
+   scrollbar-gutter: stable;
+}
+
+body {
+   line-height: 1.5;
+   text-rendering: optimizeLegibility;
+}
+
+img,
+picture {
+   max-width: 100%;
+   display: block;
+}
+
+input,
+button,
+textarea,
+select {
+   font: inherit;
+}
+
+ul,
+ol {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+}
+
+a {
+   color: inherit;
+   text-decoration: none;
+}
+
+/*  Убираем анимации для людей с ограничениями */
+@media (prefers-reduced-motion: reduce) {
+   * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+   }
+}

@@ -1,0 +1,37 @@
+.button {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   column-gap: 4px;
+   // padding: fluid-to-laptop(18, 14) fluid-to-laptop(24, 20);
+   // padding: fluid(14,18, );
+   font-weight: 600;
+   // color: ;
+   // background-color:;
+   border: none;
+   // border-radius: ;
+   user-select: none;
+   cursor: pointer;
+
+
+   &:active {
+      scale: 0.95;
+   }
+
+   &:disabled {
+      // color:;
+      // background-color: ;
+      pointer-events: none;
+   }
+
+
+   &--transparent {
+      background-color: transparent;
+
+      &:has(.button__icon:only-child) {
+         .button__icon {
+         //--iconSize: #{fluid-to-laptop(34, 24)};
+         }
+      }
+   }
+}

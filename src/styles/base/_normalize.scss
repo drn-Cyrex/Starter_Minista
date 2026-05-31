@@ -1,0 +1,72 @@
+/* 1. Ссылки ведут себя как inline elements */
+a {
+   text-decoration-skip-ink: auto;
+}
+
+/* 2. Улучшенная типографика для заголовков */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-weight: inherit;
+   line-height: 1.2;
+}
+
+/* 3. Улучшенные таблицы */
+table {
+   width: 100%;
+   border-collapse: collapse;
+}
+
+/* 4. Улучшенные кнопки */
+button {
+   cursor: pointer;
+   background: none;
+   border: none;
+   padding: 0;
+}
+
+/* 5. Улучшенные формы */
+input,
+textarea,
+select,
+button {
+   color: inherit;
+   background-color: transparent;
+   border-radius: 0;
+}
+
+/* 6. Улучшенная работа с медиа */
+img,
+video {
+   display: block;
+   max-width: 100%;
+}
+
+/* 7. Улучшенные списки */
+ul,
+ol {
+   padding-left: 1.2rem;
+}
+
+/* 8. Улучшенные абзацы */
+p {
+   overflow-wrap: break-word;
+}
+
+/* 9. Улучшенная типографика для html */
+html {
+   hanging-punctuation: first last;
+   text-size-adjust: 100%;
+}
+
+body {
+   background-color: var(--color-bg);
+}
+
+main {
+   min-block-size: 100dvh;
+}
+

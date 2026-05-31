@@ -1,0 +1,114 @@
+@use "../core/variables" as *;
+@use "../core/mixins" as *;
+
+/* ------------------------------
+   1. Базовые настройки текста
+------------------------------ */
+body {
+   font-family: var(--font-family);
+   font-size: var(--font-base);
+   color: var(--color-text);
+   line-height: 1.6;
+}
+
+/* ------------------------------
+   2. Параграфы
+------------------------------ */
+p {
+   font-size: var(--font-size-md);
+}
+
+/* ------------------------------
+   3. Заголовки (адаптивные)
+------------------------------ */
+h1 {
+   @include fluid-type(2rem, 3rem);
+   font-weight: 700;
+}
+
+h2 {
+   @include fluid-type(1.75rem, 2.5rem);
+   font-weight: 600;
+}
+
+h3 {
+   @include fluid-type(1.5rem, 2rem);
+   font-weight: 600;
+}
+
+h4 {
+   @include fluid-type(1.25rem, 1.75rem);
+   font-weight: 600;
+}
+
+h5 {
+   @include fluid-type(1.1rem, 1.4rem);
+   font-weight: 600;
+}
+
+h6 {
+   @include fluid-type(1rem, 1.2rem);
+   font-weight: 600;
+}
+
+/* ------------------------------
+   4. Классы заголовков (utility)
+------------------------------ */
+.h1 {
+   @include fluid-type(2rem, 3rem);
+   font-weight: 700;
+}
+.h2 {
+   @include fluid-type(1.75rem, 2.5rem);
+   font-weight: 600;
+}
+.h3 {
+   @include fluid-type(1.5rem, 2rem);
+   font-weight: 600;
+}
+.h4 {
+   @include fluid-type(1.25rem, 1.75rem);
+   font-weight: 600;
+}
+.h5 {
+   @include fluid-type(1.1rem, 1.4rem);
+   font-weight: 600;
+}
+.h6 {
+   @include fluid-type(1rem, 1.2rem);
+   font-weight: 600;
+}
+
+/* ------------------------------
+   5. Текстовые утилиты
+------------------------------ */
+.lead {
+   @include fluid-type(1.1rem, 1.4rem);
+   color: var(--color-text-secondary);
+}
+
+.muted {
+   color: var(--color-text-secondary);
+}
+
+.small {
+   font-size: 0.875rem;
+}
+
+.bold {
+   font-weight: 700;
+}
+
+/* ------------------------------
+   6. Ссылки
+------------------------------ */
+a {
+   //color: var(--color-primary);
+   transition: color 0.2s ease;
+
+   @include motion-safe {
+      &:hover {
+         // color: var(--color-primary-hover);
+      }
+   }
+}
